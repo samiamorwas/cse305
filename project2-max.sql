@@ -1,12 +1,12 @@
 Add employee info:
 
 INSERT INTO Person (SSN, Last_Name, First_Name, Address, City, State, Zip_Code, Telephone, Email_Address)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+VALUES (?: INTEGER, ?: VARCHAR(50), ?: VARCHAR(50), ?: VARCHAR(100), ?: VARCHAR(50), ?: VARCHAR(50), ?:INTEGER, ?:INTEGER, ?: VARCHAR(50));
 
 Where each ? represents the appropriate field from the column list.
 
 INSERT INTO Employee (SSN, Start_Date, Hourly_Rate, Manager)
-VALUES (?, ?, ?, ?);
+VALUES (?: INTEGER, ?: DATETIME, ?: INTEGER, ?: INTEGER);
 
 Where each ? represents the appropriate field from the column list, and the first ? is the same SSN used in the Person table.
 
@@ -14,12 +14,12 @@ Where each ? represents the appropriate field from the column list, and the firs
 Update employee info:
 
 UPDATE Person
-SET Last_Name=?, First_Name=?, Address=?, City=?, State=?, Zip_Code=?, Telephone=?, Email_Address=?
-WHERE SSN=?;
+SET Last_Name=?: VARCHAR(50), First_Name=?: VARCHAR(50), Address=?: VARCHAR(100), City=?: VARCHAR(50), State=?: VARCHAR(50), Zip_Code=?: INTEGER, Telephone=?: INTEGER, Email_Address=?: VARCHAR(50)
+WHERE SSN=?: INTEGER;
 
 UPDATE Employee
-SET Start_Date=?, Hourly_Rate=?, Manager=?
-WHERE SSN=?;
+SET Start_Date=?: DATETIME, Hourly_Rate=?: INTEGER, Manager=?: INTEGER
+WHERE SSN=?: INTEGER;
 
 Where each ? represents the value to be assigned, and the last ? is the SSN of the Employee to update.
 
@@ -27,10 +27,10 @@ Where each ? represents the value to be assigned, and the last ? is the SSN of t
 Delete Employee info:
 
 DELETE FROM Person
-WHERE SSN=?;
+WHERE SSN=?: INTEGER;
 
 DELETE FROM Employee
-WHERE SSN=?;
+WHERE SSN=?: INTEGER;
 
 Where ? is the SSN of the Employee to be deleted (SSN must be used to delete from both tables).
 
@@ -151,7 +151,7 @@ Where ? is the name of the desired company.
 Create an advertisement:
 
 INSERT INTO Advertisement(Advertisement_Id, Employee, Type, Date, Company, Item_Name, Content, Unit_Price, Available_Unit)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+VALUES (?: INTEGER, ?: INTEGER, ?: VARCHAR(50), ?: DATETIME, ?: VARCHAR(50), ?: VARCHAR(50), ?: VARCHAR(50), ?: INTEGER, ?: INTEGER);
 
 Where each ? represents the appropriate field from the column list.
 
@@ -159,7 +159,7 @@ Where each ? represents the appropriate field from the column list.
 Delete an advertisement:
 
 DELETE FROM Advertisement
-WHERE Advertisement_Id=?;
+WHERE Advertisement_Id=?: INTEGER;
 
 Where ? represents the ID of the advertisement to be deleted.
 
@@ -167,7 +167,7 @@ Where ? represents the ID of the advertisement to be deleted.
 Record a transaction:
 
 INSERT INTO Purchase(Transaction_Id, Date, Advertisement, Number_Of_Units, Account, User)
-VALUES (?, ?, ?, ?, ?, ?);
+VALUES (?: INTEGER, ?:DATETIME, ?: INTEGER, ?: INTEGER, ?: INTEGER, ?: INTEGER);
 
 Where each ? represents the appropriate field from the column list.
 
@@ -175,12 +175,12 @@ Where each ? represents the appropriate field from the column list.
 Add customer info:
 
 INSERT INTO Person (SSN, Last_Name, First_Name, Address, City, State, Zip_Code, Telephone, Email_Address)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+VALUES (?: INTEGER, ?:VARCHAR(50), ?:VARCHAR(50), ?:VARCHAR(100), ?:VARCHAR(50), ?,:VARCHAR(50) ?: INTEGER, ?: INTEGER, ?:VARCHAR(50));
 
 Where each ? represents the appropriate field from the column list.
 
 INSERT INTO User (SSN, User_Id, Account_Creation_Date, Rating)
-VALUES (?, ?, ?, ?);
+VALUES (?: INTEGER, ?:DATETIME, ?: INTEGER, ?: INTEGER);
 
 Where each ? represents the appropriate field from the column list, and the first ? is the same SSN used in the Person table.
 
@@ -188,12 +188,12 @@ Where each ? represents the appropriate field from the column list, and the firs
 Update customer info:
 
 UPDATE Person
-SET Last_Name=?, First_Name=?, Address=?, City=?, State=?, Zip_Code=?, Telephone=?, Email_Address=?
-WHERE SSN=?;
+SET Last_Name=?:VARCHAR(50), First_Name=?:VARCHAR(50), Address=?:VARCHAR(50), City=?:VARCHAR(50), State=?:VARCHAR(50), Zip_Code=?: INTEGER, Telephone=?: INTEGER, Email_Address=?:VARCHAR(50)
+WHERE SSN=?: INTEGER;
 
 UPDATE User
-SET User_Id=?, Account_Creation_Date=?, Rating=?
-WHERE SSN=?;
+SET User_Id=?: INTEGER, Account_Creation_Date=?: DATETIME, Rating=?: INTEGER
+WHERE SSN=?: INTEGER;
 
 Where each ? represents the value to be assigned, and the last ? is the SSN of the User to update.
 
@@ -201,10 +201,10 @@ Where each ? represents the value to be assigned, and the last ? is the SSN of t
 Delete customer info:
 
 DELETE FROM Person
-WHERE SSN=?;
+WHERE SSN=?: INTEGER;
 
 DELETE FROM User
-WHERE SSN=?;
+WHERE SSN=?: INTEGER;
 
 Where ? is the SSN of the customer to be deleted (SSN must be used to delete from both tables).
 
@@ -235,6 +235,6 @@ Where ? is the ID of the desired user.
 Create a circle:
 
 INSERT INTO Circle(Circle_Id, Circle_NAME, Owner_Of_Circle, Type)
-VALUES (?, ?, ?, ?);
+VALUES (?: INTEGER, ?:VARCHAR(100), ?: INTEGER, ?:VARCHAR(50));
 
 Where each ? represents the appropriate field from the column list.
