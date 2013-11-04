@@ -1,83 +1,112 @@
 //New user
 INSERT INTO User(SSN, User_Id, Account_Creation_Date, Rating)
-VALUES (?,?,?, ?);
+VALUES (?:INTEGER,?: INTEGER,?: DATETIME NOT NULL, ? INTEGER);
+
+Where each ? represents the appropriate field from the column list.
 
 //New Circle
 INSERT INTO Circle(Circle_Id, Circle_Name, Owner_Of_Circle, Type)
-VALUES ( ?, ?,?,?);
+VALUES ( ?: INTEGER, ?: VARCHAR(50),?: INTEGER,?: VARCHAR(50));
+
+Where each ? represents the appropriate field from the column list.
 
 //New Posts
 INSERT INTO Post(Post_Id, Date, Content, Comment_Count, Circle, Author)
-VALUES (?, ?,? ,?, ?,?);
+VALUES (?: INTEGER, ?: DATETIME NOT NULL,?: VARCHAR(50) ,?: INTEGER, ?: INTEGER,?: INTEGER);
 
+Where each ? represents the appropriate field from the column list.
 
 //New Comments
 INSERT INTO Comment(Comment_Id,Date, Content, Post, Author)
-VALUES (?, ?, ?, ?, ?);
+VALUES (?: INTEGER, ?: DATETIME NOT NULL, ?: VARCHAR(50) ?: INTEGER, ?: INTEGER);
 
+Where each ? represents the appropriate field from the column list.
 
 //Like a Post
 INSERT INTO User_Likes_Post (User, Post)
-VALUES (?, ?);
+VALUES (?: INTEGER, ?: INTEGER);
+
+Where each ? represents the appropriate field from the column list.
 
 //Like a Commnet
 INSERT INTO User_Likes_Comment (User, Comment)
-VALUES (?, ?);
+VALUES (?: INTEGER, ?: INTEGER);
 
-
+Where each ? represents the appropriate field from the column list.
 
 //Remove a post
 DELETE FROM Post 
-WHERE Post_Id = ?
+WHERE Post_Id = ?: INTEGER
 
+Where ? is the Post_Id of the Post to be deleted 
 
 //Remove a Comment
 DELETE FORM Comment
-WHERE Comment_Id = ?
+WHERE Comment_Id = ?: INTEGER
+
+Where ? is the Comment_Id of the Comment to be deleted 
 
 //Unlike a post
 DELETE FROM User_Likes_Post
-WHERE Post_Id = ?
+WHERE Post = ?: INTEGER
+
+Where ? is the Post_Id of the User_Likes_Post to be deleted 
+
 
 //Unlike a comment
 DELETE FROM User_Likes_Comment
-WHERE Comment_Id = ?
+WHERE Comment = ?: INTEGER
+
+Where ? is the Comment_Id of the User_Likes_Comment to be deleted 
+
 
 //Modify a post
 UPDATE Post
-SET Comment_Count = ?
-WHERE Post_Id = ?
+SET Comment_Count = ?: INTEGER
+WHERE Post_Id = ?: INTEGER
+
+Where ? is the Post_Id of the Post to be Updated
 
 //Modify a Comment
 UPDATE Comment
-SET Content = ?
-WHERE Comment_Id = ?
+SET Content = ?: VARCHAR(50)
+WHERE Comment_Id = ?: INTEGER
+
+Where ? is the Comment_Id of the Comment to be Updated
 
 //Send a message
 INSERT INTO Message (Message_Id, Date, Subject, Content, Sender, Receiver)
-VALUES (?,?, ?, ?, ?,?)
+VALUES (?: INTEGER,?:DATETIME NOT NULL, ?: VARCHAR(50), ?: VARCHAR(1000), ?: INTEGER,?: INTEGER )
+
+Where each ? represents the appropriate field from the column list.
 
 //Receive a message
 INSERT INTO Message (Message_Id, Date, Subject, Content, Sender, Receiver)
-VALUES (?,?, ?, ?, ?,? )
+VALUES (?: INTEGER,?:DATETIME NOT NULL, ?: VARCHAR(50), ?: VARCHAR(1000), ?: INTEGER,?: INTEGER )
+
+Where each ? represents the appropriate field from the column list.
 
 //Delete a message
 DELETE FROM Message 
-WHERE Message_Id = ?
+WHERE Message_Id = ?: INTEGER
+
+Where ? is the Message_Id of the Message to be Deleted
 
 //Purchase one or more copies of an advertised item
 INSERT INTO Purchase(Transaction_Id, Date, Advertisement, Number_Of_Units, Account, User)
-VALUES(?,?, ?, ?, ?, ? )
+VALUES(?: INTEGER,?: DATETIME NOT NULL, ?: INTEGER, ?: INTEGER, ?: INTEGER, ?: INTEGER )
+
+Where each ? represents the appropriate field from the column list.
 
 //A customer's current circles
 SELECT C.CIRCLE_NAME
-FROM Circle C, User F, AddedTo A
+FROM Circle C, FBUser F, AddedTo A
 WHERE F.USER_ID = A.USER_ID AND A.CIRCLE_ID = C.CIRCLE_ID
 
 //Account History
 SELECT A.ACCOUNT_NUMBER, Ad.ITEM_NAME, P.NUMBER_OF_UNITS, P.DATE
 FROM Purchase P, Account A, Advertisement Ad
-WHERE P.Advertisement = Ad.Advertisement_Id AND P.ACCOUNT = A.ACCOUNT_NUMBER
+WHERE P.ADVERTISEMENT = Ad.ADVERTISEMENT_ID AND P.ACCOUNT = A.ACCOUNT_NUMBER
 
 //Best-Seller list of items
 CREATE VIEW PurchaseList(ItemId, NumOfPurchased) AS
@@ -86,20 +115,20 @@ FROM Purchase P, Advertisement A
 WHERE P.ADVERTISEMENT = A.ADVERTISEMENT_ID
 GROUP BY P.Advertisement;
 
-SELECT Ad.ITEM_NAME, Ad.Type
+SELECT Ad.ITEM_NAME, Ad."TYPE"
 FROM Advertisement Ad, PurchaseList L
 WHERE L.ItemId = Ad.ADVERTISEMENT_ID AND
       L.NumOfPurchased >= ALL (SELECT NumOfPurchased FROM PurchaseList)
 
 //Personalized Item suggestion List
 CREATE VIEW PurchasedHistory(AccountId, ItemType, NumOfItems) AS
-SELECT Ac.Account_Number, A.Type, SUM(P.Number_Of_Units)
+SELECT Ac.Account_Number, A."TYPE", SUM(P.Number_Of_Units)
 FROM Advertisement A, Account Ac, Purchase P
 WHERE P.Advertisement = A.Advertisement_Id AND P.Account = Ac.Account_Number
 
-SELECT A.Advertisement_Id, A.Item_Name, A.Type
+SELECT A.Advertisement_Id, A.Item_Name, A."TYPE"
 FROM Advertisement A
-WHERE A.Type IN (SELECT Pu.ItemType
+WHERE A."TYPE" IN (SELECT Pu.ItemType
                    FROM PurchasedHistory Pu
                    WHERE  Pu.AccountId = ? AND 
                           Pu.NumOfItems >= (SELECT MAX(NumOfItems) 
