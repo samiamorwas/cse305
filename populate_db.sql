@@ -260,7 +260,7 @@ INSERT INTO Person(SSN, Last_Name, First_Name, Address, City, State, Zip_Code, T
 VALUES (100100108, "Stewart", "Chuck", "54 East Apt,Oak St", "New York", "NY", 11700, 4314649888, "chuck@blah.com");
 
 INSERT INTO Person(SSN, Last_Name, First_Name, Address, City, State, Zip_Code, Telephone, Email_Address)
-VALUES (100100101, "Norton", "Brad", "Chapin Apt 2010,Health Drive", "Stony Brook", "NY", 11790, 4314649889, "brad@blah.com");
+VALUES (100100109, "Norton", "Brad", "Chapin Apt 2010,Health Drive", "Stony Brook", "NY", 11790, 4314649889, "brad@blah.com");
 
 INSERT INTO Person(SSN, Last_Name, First_Name, Address, City, State, Zip_Code, Telephone, Email_Address)
 VALUES (100100110, "Buffet", "Jeniffer", "Chapin Apt 1223,Health Drive", "New York", "NY", 11700, 4314649890, "jennycool123@blah.com");
@@ -317,49 +317,49 @@ INSERT INTO Comment(Comment_Id, Date, Content, Post, Author)
 VALUES (900006, '2011-12-10 11:11:11', 'Congrats!', 20114, 100100109);
 
 INSERT INTO User_Likes_Post(User, Post)
-VALUES (20111, 100100101);
+VALUES (100100101, 20111);
 
 INSERT INTO User_Likes_Post(User, Post)
-VALUES (20111, 100100102);
+VALUES (100100102, 20111);
 
 INSERT INTO User_Likes_Post(User, Post)
-VALUES (20111, 100100103);
+VALUES (100100103, 20111);
 
 INSERT INTO User_Likes_Post(User, Post)
-VALUES (20111, 100100104);
+VALUES (100100104, 20111);
 
 INSERT INTO User_Likes_Post(User, Post)
-VALUES (20112, 100100101);
+VALUES (100100101, 20112);
 
 INSERT INTO User_Likes_Post(User, Post)
-VALUES (201112, 100100102);
+VALUES (100100102, 20112);
 
 INSERT INTO User_Likes_Post(User, Post)
-VALUES (20112, 100100103);
+VALUES (100100103, 20112);
 
 INSERT INTO User_Likes_Post(User, Post)
-VALUES (20112, 100100104);
+VALUES (100100104, 20112);
 
 INSERT INTO User_Likes_Post(User, Post)
-VALUES (20112, 100100105);
+VALUES (100100105, 20112);
 
 INSERT INTO User_Likes_Post(User, Post)
-VALUES (20112, 100100107);
+VALUES (100100107, 20112);
 
 INSERT INTO User_Likes_Post(User, Post)
-VALUES (20112, 100100108);
+VALUES (100100108, 20112);
 
 INSERT INTO User_Likes_Post(User, Post)
-VALUES (20112, 100100109);
+VALUES (100100109, 20112);
 
 INSERT INTO User_Likes_Post(User, Post)
-VALUES (20113, 100100105);
+VALUES (100100105, 20113);
 
 INSERT INTO User_Likes_Post(User, Post)
-VALUES (20114, 100100106);
+VALUES (100100106, 20114);
 
 INSERT INTO User_Likes_Post(User, Post)
-VALUES (20114, 100100102);
+VALUES (100100102, 20114);
 
 INSERT INTO User_Likes_Comment
 VALUES (100100101, 900002);
@@ -380,17 +380,16 @@ INSERT INTO User_Likes_Comment
 VALUES (100100107, 900004);
 
 INSERT INTO User_Likes_Comment
-VALUES (100100108, 900008);
+VALUES (100100108, 900004);
 
 INSERT INTO Advertisement
-VALUES (33331, 111221, 'car', '2011-4-10 11:11','Ford', '2010Mustang', 'Ford Mustang! First 10 cutomers get a 10%Discount!', 22000, 30 );
+VALUES (33331, 111222333, 'car', '2011-4-10 11:11','Ford', '2010Mustang', 'Ford Mustang! First 10 cutomers get a 10%Discount!', 22000, 30 );
 
 INSERT INTO Advertisement
-VALUES (33332, 111222, 'clothing', '2011-4-10 11:11',"GAP 'Superman Shirt', 'Just $5!!!!!!!'", 5, 100 );
+VALUES (33332, 111333222, 'clothing', '2011-4-10 11:11','GAP', 'Superman Shirt', 'Just $5!!!!!!!', 5, 100 );
 
 INSERT INTO Purchase
 VALUES(200010001,'2011-04-22 11:11:11', 33331, 1, 90010101, 100100101);
-
 
 INSERT INTO Purchase
 VALUES(200010002,'2011-04-23 11:11:11', 33332, 2, 90010101, 100100101);
