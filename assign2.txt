@@ -1,0 +1,87 @@
+//New user
+INSERT INTO User(SSN, User_Id, Account_Creation_Date, Rating)
+VALUES (?,?,?, ?);
+
+//New Circle
+INSERT INTO Circle(Circle_Id, Circle_Name, Owner_Of_Circle, Type)
+VALUES ( ?, ?,?,?);
+
+//New Posts
+INSERT INTO Post(Post_Id, Date, Content, Comment_Count, Circle, Author)
+VALUES (?, ?,? ,?, ?,?);
+
+
+//New Comments
+INSERT INTO Comment(Comment_Id,Date, Content, Post, Author)
+VALUES (?, ?, ?, ?, ?);
+
+
+//Like a Post
+INSERT INTO User_Likes_Post (User, Post)
+VALUES (?, ?);
+
+//Like a Commnet
+INSERT INTO User_Likes_Comment (User, Comment)
+VALUES (?, ?);
+
+
+
+//Remove a post
+DELETE FROM Post 
+WHERE Post_Id = ?
+
+
+//Remove a Comment
+DELETE FORM Comment
+WHERE Comment_Id = ?
+
+
+//Modify a post
+UPDATE Post
+SET Comment_Count = ?
+WHERE Post_Id = ?
+
+//Modify a Comment
+UPDATE Comment
+SET Content = ?
+WHERE Comment_Id = ?
+
+//Send a message
+INSERT INTO Message (Message_Id, Date, Subject, Content, Sender, Receiver)
+VALUES (?,?, ?, ?, ?,?)
+
+//Receive a message
+INSERT INTO Message (Message_Id, Date, Subject, Content, Sender, Receiver)
+VALUES (?,?, ?, ?, ?,? )
+
+//Delete a message
+DELETE FROM Message 
+WHERE Message_Id = ?
+
+//Purchase one or more copies of an advertised item
+INSERT INTO Purchase(Transaction_Id, Date, Advertisement, Number_Of_Units, Account, User)
+VALUES(?,?, ?, ?, ?, ? )
+
+//A customer's current circles
+SELECT C.CIRCLE_NAME
+FROM Circle C, FBUser F, AddedTo A
+WHERE F.USER_ID = A.USER_ID AND A.CIRCLE_ID = C.CIRCLE_ID
+
+//Account History
+SELECT A.ACCOUNT_NUMBER, Ad.ITEM_NAME, P.NUMBER_OF_UNITS, P.DATE
+FROM Purchase P, Account A, Advertisement Ad
+WHERE P.ADVERTISEMENT = Ad.ADVERTISEMENT_ID AND P.ACCOUNT = A.ACCOUNT_NUMBER
+
+//Best-Seller list of items
+CREATE VIEW PurchaseList(ItemId, NumOfPurchased) AS
+SELECT P.Advertisement, SUM(Number_Of_Units)
+FROM Purchase P, Advertisement A
+WHERE P.ADVERTISEMENT = A.ADVERTISEMENT_ID
+GROUP BY P.Advertisement;
+
+SELECT Ad.ITEM_NAME, Ad."TYPE"
+FROM Advertisement Ad, PurchaseList L
+WHERE L.ItemId = Ad.ADVERTISEMENT_ID AND
+      L.NumOfPurchased >= ALL (SELECT NumOfPurchased FROM PurchaseList)
+
+//Personalized Item suggestion List
