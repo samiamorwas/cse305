@@ -71,13 +71,13 @@ VALUES(?,?, ?, ?, ?, ? )
 
 //A customer's current circles
 SELECT C.CIRCLE_NAME
-FROM Circle C, FBUser F, AddedTo A
+FROM Circle C, User F, AddedTo A
 WHERE F.USER_ID = A.USER_ID AND A.CIRCLE_ID = C.CIRCLE_ID
 
 //Account History
 SELECT A.ACCOUNT_NUMBER, Ad.ITEM_NAME, P.NUMBER_OF_UNITS, P.DATE
 FROM Purchase P, Account A, Advertisement Ad
-WHERE P.ADVERTISEMENT = Ad.ADVERTISEMENT_ID AND P.ACCOUNT = A.ACCOUNT_NUMBER
+WHERE P.Advertisement = Ad.Advertisement_Id AND P.ACCOUNT = A.ACCOUNT_NUMBER
 
 //Best-Seller list of items
 CREATE VIEW PurchaseList(ItemId, NumOfPurchased) AS
@@ -86,9 +86,22 @@ FROM Purchase P, Advertisement A
 WHERE P.ADVERTISEMENT = A.ADVERTISEMENT_ID
 GROUP BY P.Advertisement;
 
-SELECT Ad.ITEM_NAME, Ad."TYPE"
+SELECT Ad.ITEM_NAME, Ad.Type
 FROM Advertisement Ad, PurchaseList L
 WHERE L.ItemId = Ad.ADVERTISEMENT_ID AND
       L.NumOfPurchased >= ALL (SELECT NumOfPurchased FROM PurchaseList)
 
 //Personalized Item suggestion List
+CREATE VIEW PurchasedHistory(AccountId, ItemType, NumOfItems) AS
+SELECT Ac.Account_Number, A.Type, SUM(P.Number_Of_Units)
+FROM Advertisement A, Account Ac, Purchase P
+WHERE P.Advertisement = A.Advertisement_Id AND P.Account = Ac.Account_Number
+
+SELECT A.Advertisement_Id, A.Item_Name, A.Type
+FROM Advertisement A
+WHERE A.Type IN (SELECT Pu.ItemType
+                   FROM PurchasedHistory Pu
+                   WHERE  Pu.AccountId = ? AND 
+                          Pu.NumOfItems >= (SELECT MAX(NumOfItems) 
+                                            FROM PurchasedHistory Pu2
+                                            WHERE Pu2.AccountId = ?))
