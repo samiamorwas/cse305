@@ -35,6 +35,13 @@ WHERE Post_Id = ?
 DELETE FORM Comment
 WHERE Comment_Id = ?
 
+//Unlike a post
+DELETE FROM User_Likes_Post
+WHERE Post_Id = ?
+
+//Unlike a comment
+DELETE FROM User_Likes_Comment
+WHERE Comment_Id = ?
 
 //Modify a post
 UPDATE Post
