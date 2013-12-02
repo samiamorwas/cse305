@@ -107,40 +107,40 @@ INSERT INTO AddedTo(User_Id, Circle_Id)
 VALUES (100100109, 8006);
 
 INSERT INTO Account(Account_Number, Account_Creation_Date, Credit_Card_Number, Status)
-VALUES (90010101, '2011-04-10 11:11:11', 4123132454456550, 'Active');
+VALUES (90010101, '2011-04-10 11:11:11', 4123, 'Active');
 
 INSERT INTO Account(Account_Number, Account_Creation_Date, Credit_Card_Number, Status)
-VALUES (90010102, '2011-04-10 11:11:11', 1221344356657880, 'Active');
+VALUES (90010102, '2011-04-10 11:11:11', 1221, 'Active');
 
 INSERT INTO Account(Account_Number, Account_Creation_Date, Credit_Card_Number, Status)
-VALUES (90010103, '2011-04-10 11:11:11', 9889677645543220, 'Active');
+VALUES (90010103, '2011-04-10 11:11:11', 9889, 'Active');
 
 INSERT INTO Account(Account_Number, Account_Creation_Date, Credit_Card_Number, Status)
-VALUES (90010104, '2011-04-10 11:11:11', 1221655609907660, 'Active');
+VALUES (90010104, '2011-04-10 11:11:11', 1221, 'Active');
 
 INSERT INTO Account(Account_Number, Account_Creation_Date, Credit_Card_Number, Status)
-VALUES (90010105, '2011-05-10 11:11:11', 1221322334434550, 'Active');
+VALUES (90010105, '2011-05-10 11:11:11', 1221, 'Active');
 
 INSERT INTO Account(Account_Number, Account_Creation_Date, Credit_Card_Number, Status)
-VALUES (90010106, '2011-05-10 11:11:11', 9889877867764550, 'Active');
+VALUES (90010106, '2011-05-10 11:11:11', 9889, 'Active');
 
 INSERT INTO Account(Account_Number, Account_Creation_Date, Credit_Card_Number, Status)
-VALUES (90010107, '2011-06-10 11:11:11', 3443566576678770, 'Active');
+VALUES (90010107, '2011-06-10 11:11:11', 3443, 'Active');
 
 INSERT INTO Account(Account_Number, Account_Creation_Date, Credit_Card_Number, Status)
-VALUES (90010108, '2011-06-10 11:11:11', 1221122132232330, 'Active');
+VALUES (90010108, '2011-06-10 11:11:11', 1221, 'Active');
 
 INSERT INTO Account(Account_Number, Account_Creation_Date, Credit_Card_Number, Status)
-VALUES (90010109, '2011-06-10 11:11:11', 1234432145544550, 'Active');
+VALUES (90010109, '2011-06-10 11:11:11', 1234, 'Active');
 
 INSERT INTO Account(Account_Number, Account_Creation_Date, Credit_Card_Number, Status)
-VALUES (90010110, '2011-06-10 11:11:11', 2345543289000980, 'Active');
+VALUES (90010110, '2011-06-10 11:11:11', 2345, 'Active');
 
 INSERT INTO Account(Account_Number, Account_Creation_Date, Credit_Card_Number, Status)
-VALUES (90010111, '2011-07-10 11:11:11', 2345543282424980, 'Active');
+VALUES (90010111, '2011-07-10 11:11:11', 2345, 'Active');
 
 INSERT INTO Account(Account_Number, Account_Creation_Date, Credit_Card_Number, Status)
-VALUES (90010112, '2011-07-10 11:11:11', 2345543289003440, 'Active');
+VALUES (90010112, '2011-07-10 11:11:11', 2345, 'Active');
 
 INSERT INTO User_Has_Account(User_Id, Account_Number)
 VALUES (100100101, 90010101);
@@ -236,43 +236,43 @@ INSERT INTO Message(Message_Id, Date, Subject, Content, Sender, Receiver)
 VALUES (3004, '2011-11-10 11:11:11', 'will be late', 'Hey! I am sorry I wont make it to tonights appointment.Stuck with some work! :(', 100100105, 100100105);
 
 INSERT INTO Person(SSN, Last_Name, First_Name, Address, City, State, Zip_Code, Telephone, Email_Address)
-VALUES (100100101, "McKeeny", "Alice", "Chapin Apt 2010,Health Drive", "Stony Brook", "NY", 11790, 4314649881, "alice@blah.com");
+VALUES (100100101, "McKeeny", "Alice", "Chapin Apt 2010,Health Drive", "Stony Brook", "NY", 11790, 4649881, "alice@blah.com");
 
 INSERT INTO Person(SSN, Last_Name, First_Name, Address, City, State, Zip_Code, Telephone, Email_Address)
-VALUES (100100102, "Wonderwall", "Bob", "21 MajorApt,Oak St.", "New York", "NY", 11700, 4314649882, "bob@blah.com");
+VALUES (100100102, "Wonderwall", "Bob", "21 MajorApt,Oak St.", "New York", "NY", 11700, 44649882, "bob@blah.com");
 
 INSERT INTO Person(SSN, Last_Name, First_Name, Address, City, State, Zip_Code, Telephone, Email_Address)
-VALUES (100100103, "Roth", "Elisa", "43 Corvette Apt, Maple St", "Stony Brook", "NY", 11790, 4314649883, "elisa@blah.com");
+VALUES (100100103, "Roth", "Elisa", "43 Corvette Apt, Maple St", "Stony Brook", "NY", 11790, 4649883, "elisa@blah.com");
 
 INSERT INTO Person(SSN, Last_Name, First_Name, Address, City, State, Zip_Code, Telephone, Email_Address)
-VALUES (100100104, "Mcdonald", "Kelly", "54 East Apt,Oak St", "New York", "NY", 11700, 4314649884, "kelly@blah.com");
+VALUES (100100104, "Mcdonald", "Kelly", "54 East Apt,Oak St", "New York", "NY", 11700, 4649884, "kelly@blah.com");
 
 INSERT INTO Person(SSN, Last_Name, First_Name, Address, City, State, Zip_Code, Telephone, Email_Address)
-VALUES (100100105, "Stanley", "Wendy", "21 MajorApt,Oak St.", "Stony Brook", "NY", 11790, 4314649885, "wendy@blah.com");
+VALUES (100100105, "Stanley", "Wendy", "21 MajorApt,Oak St.", "Stony Brook", "NY", 11790, 4649885, "wendy@blah.com");
 
 INSERT INTO Person(SSN, Last_Name, First_Name, Address, City, State, Zip_Code, Telephone, Email_Address)
-VALUES (100100106, "Ritchie", "Dennis", "43 Corvette Apt, Maple St", "New York", "NY", 11700, 4314649886, "den@blah.com");
+VALUES (100100106, "Ritchie", "Dennis", "43 Corvette Apt, Maple St", "New York", "NY", 11700, 4649886, "den@blah.com");
 
 INSERT INTO Person(SSN, Last_Name, First_Name, Address, City, State, Zip_Code, Telephone, Email_Address)
-VALUES (100100107, "Norris", "Patrick", "Chapin Apt 1001,Health Drive", "Stony Brook", "NY", 11790, 4314649887, "patnor@blah.com");
+VALUES (100100107, "Norris", "Patrick", "Chapin Apt 1001,Health Drive", "Stony Brook", "NY", 11790, 4649887, "patnor@blah.com");
 
 INSERT INTO Person(SSN, Last_Name, First_Name, Address, City, State, Zip_Code, Telephone, Email_Address)
-VALUES (100100108, "Stewart", "Chuck", "54 East Apt,Oak St", "New York", "NY", 11700, 4314649888, "chuck@blah.com");
+VALUES (100100108, "Stewart", "Chuck", "54 East Apt,Oak St", "New York", "NY", 11700, 4649888, "chuck@blah.com");
 
 INSERT INTO Person(SSN, Last_Name, First_Name, Address, City, State, Zip_Code, Telephone, Email_Address)
-VALUES (100100109, "Norton", "Brad", "Chapin Apt 2010,Health Drive", "Stony Brook", "NY", 11790, 4314649889, "brad@blah.com");
+VALUES (100100109, "Norton", "Brad", "Chapin Apt 2010,Health Drive", "Stony Brook", "NY", 11790, 4649889, "brad@blah.com");
 
 INSERT INTO Person(SSN, Last_Name, First_Name, Address, City, State, Zip_Code, Telephone, Email_Address)
-VALUES (100100110, "Buffet", "Jeniffer", "Chapin Apt 1223,Health Drive", "New York", "NY", 11700, 4314649890, "jennycool123@blah.com");
+VALUES (100100110, "Buffet", "Jeniffer", "Chapin Apt 1223,Health Drive", "New York", "NY", 11700, 4649890, "jennycool123@blah.com");
 
 INSERT INTO Person(SSN, Last_Name, First_Name, Address, City, State, Zip_Code, Telephone, Email_Address)
-VALUES (111222333, "Thomas", "Mike", "43 Apple Apt,Maple Street", "Stony Brook", "NY", 11790, 6314648998, NULL);
+VALUES (111222333, "Thomas", "Mike", "43 Apple Apt,Maple Street", "Stony Brook", "NY", 11790, 4648998, NULL);
 
 INSERT INTO Person(SSN, Last_Name, First_Name, Address, City, State, Zip_Code, Telephone, Email_Address)
-VALUES (111333222, "Klaus", "Jonthan", "76 PotterApt,Muriel Avenue", "Stony Brook", "NY", 11790, 6314651232, NULL);
+VALUES (111333222, "Klaus", "Jonthan", "76 PotterApt,Muriel Avenue", "Stony Brook", "NY", 11790, 4651232, NULL);
 
 INSERT INTO Person(SSN, Last_Name, First_Name, Address, City, State, Zip_Code, Telephone, Email_Address)
-VALUES (111444111, "Thomas", "Scott", "11 Oak St,Mart Avenue", "Stony Brook", "NY", 11790, 4312345432, NULL);
+VALUES (111444111, "Thomas", "Scott", "11 Oak St,Mart Avenue", "Stony Brook", "NY", 11790, 2345432, NULL);
 
 INSERT INTO Employee(SSN, Start_Date, Hourly_Rate, Manager)
 VALUES (111222333, '2011-04-10 11:11:11', 20, 111444111);
